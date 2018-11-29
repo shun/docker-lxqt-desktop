@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  ubuntu-system-container:
+    build: .
+    image: kudoshunsuke/docker-lxqt-desktop:16.04
+    container_name: lxqt-desktop
+    ports:
+    - "20022:22"
+    privileged: true
