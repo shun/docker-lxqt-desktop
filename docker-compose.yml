@@ -2,9 +2,17 @@ version: "2"
 
 services:
   ubuntu-system-container:
-    build: .
-    image: kudoshunsuke/docker-lxqt-desktop:16.04
-    container_name: lxqt-desktop
+    build:
+      context: .
+      args:
+        http_proxy: $http_proxy
+        https_proxy: $http_proxy
+        HTTP_PROXY: $http_proxy
+        HTTPS_PROXY: $http_proxy
+        no_proxy: $no_proxy
+        NO_PROXY: $no_proxy
+    image: kudoshunsuke/docker-xfce-ubuntu:16.04
+    container_name: ubuntu-desktop
     ports:
-    - "20022:22"
+    - "10022:22"
     privileged: true
